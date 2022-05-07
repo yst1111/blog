@@ -171,4 +171,35 @@ wrapper.last("limit 1");
 
 
 ## UpdateWrapper
+实体类最好不要用基本数据类型,而用包装类型
 
+```
+UpdateWrapper<Student> updateWrapper = new UpdateWrapper<>();
+Student student = new Student();
+student.setName("zzs");
+student.setLikes("game");
+
+updateWrapper.set("country","中国");
+updateWrapper.like("name","z"); 
+//UPDATE student SET name=?, likes=?, country=?,age=?, age = 19 WHERE (name LIKE ? AND id = ?)
+updateWrapper.set("age","18");
+updateWrapper.eq("id","1");
+updateWrapper.setSql(" age = 19");
+mybatisTest.update(student,updateWrapper);
+```
+
+
+
+## LambdaQueryWrapper
+
+```
+        LambdaQueryWrapper<Student> lambda = new QueryWrapper<Student>().lambda();
+        lambda.eq(Student::getId,1);
+
+//        lambda.ge(Student::getAge,"12")
+//                .le(Student::getAge,"15")
+//                .like(Student::getName,"z")
+//                .orderByAsc(Student::getId);
+
+        List<Student> students = mybatisTest.selectList(lambda);
+```
