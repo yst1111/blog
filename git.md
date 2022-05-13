@@ -36,7 +36,7 @@
 
 
 
-![image-20220513100638702](C:\Users\ly-yangst\Desktop\常用工具\my学习\git.assets\image-20220513100638702.png)
+![image-20220513100638702](/git.assets/image-20220513100638702.png)
 
 ## 小妙招
 
